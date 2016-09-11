@@ -80,20 +80,20 @@ function get_pushpin_from_map_item(map_item) {
                 // already expired, skip it
                 return null;
             }
-            icon_url = 'https://s3-us-west-2.amazonaws.com/pokemon-map/icons/pokemon/' + map_item['pokemon_id'] + '.png';
+            icon_url = 'images/pushpin_images/pokemon/' + map_item['pokemon_id'] + '.png';
             title = get_expire_time_from_epoch(map_item['expire'])
         }
         // gym logic
         else if (map_item["gymteam"] !== undefined) {
-            icon_url = 'https://s3-us-west-2.amazonaws.com/pokemon-map/icons/pharmacy-icon' + map_item["gymteam"] + '.png';
+            icon_url = 'images/pushpin_images/gym/pharmacy-icon' + map_item["gymteam"] + '.png';
         }
         // pokestop logic
         else if (map_item['lure'] > now_time * 1000) {
-            icon_url = 'https://s3-us-west-2.amazonaws.com/pokemon-map/icons/pokeball_lure.png';
+            icon_url = 'images/pushpin_images/fort/pokeball_lure.png';
             title = get_expire_time_from_epoch(map_item['lure'])
         }
         else {
-             icon_url = 'https://s3-us-west-2.amazonaws.com/pokemon-map/icons/pokeball.png';
+             icon_url = 'images/pushpin_images/fort/pokeball.png';
         }
 
         var pushpin = new Microsoft.Maps.Pushpin(
